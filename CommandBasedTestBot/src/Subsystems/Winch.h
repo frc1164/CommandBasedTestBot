@@ -5,12 +5,12 @@
 #include <Victor.h>
 #include <Joystick.h>
 
-class Winch : public Subsystem {
+class Winch : public frc::Subsystem {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	Victor *Winch1, *Winch2, *Winch3;
-	Joystick *Stick;
+	frc::Victor *Winch1, *Winch2, *Winch3;
+	frc::Joystick *Stick;
 
 public:
 	Winch();

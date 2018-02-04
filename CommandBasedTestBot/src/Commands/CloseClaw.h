@@ -1,9 +1,9 @@
 #ifndef CloseClaw_H
 #define CloseClaw_H
 
-#include <Commands/Command.h>
+#include "Commands/Command.h"
 
-class CloseClaw : public frc::Command {
+class CloseClaw : public frc::Command{
 public:
 	CloseClaw();
 	void Initialize();

@@ -4,19 +4,18 @@
 
 Winch::Winch() : Subsystem("ExampleSubsystem") {
 
-	Winch1 = new Victor(5);
-	Winch2 = new Victor(6);
-	Winch3 = new Victor(7);
-	Stick = new Joystick(0);
+	Winch1 = new frc::Victor(5);
+	Winch2 = new frc::Victor(6);
+	Winch3 = new frc::Victor(7);
+	Stick = new frc::Joystick(0);
 }
 
 void Winch::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	// SetDefaultCommand(new MySpecialCommand());
 
-	//SetDefaultCommand(new RunWinchWithJoystick());
+	SetDefaultCommand(new RunWinchWithJoystick());
 }
-
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
