@@ -1,34 +1,34 @@
-#include "CloseClaw.h"
+#include "OpenClaw.h"
 #include "../RobotMap.h"
 
-CloseClaw::CloseClaw() {
+OpenClaw::OpenClaw() {
 	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(Robot::chassis.get());'
+	// eg. Requires(Robot::chassis.get());
 	Requires(&TestBotClaw);
 }
 
 // Called just before this Command runs the first time
-void CloseClaw::Initialize() {
+void OpenClaw::Initialize() {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void CloseClaw::Execute() {
-	TestBotClaw.CloseClaw();
+void OpenClaw::Execute() {
+	TestBotClaw.OpenClaw();
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CloseClaw::IsFinished() {
+bool OpenClaw::IsFinished() {
 	return false;
 }
 
 // Called once after isFinished returns true
-void CloseClaw::End() {
+void OpenClaw::End() {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CloseClaw::Interrupted() {
+void OpenClaw::Interrupted() {
 
 }
