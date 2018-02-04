@@ -1,34 +1,32 @@
-#include "DriveTankWithJoystick.h"
+#include "CloseClaw.h"
 #include "../RobotMap.h"
-
-DriveTankWithJoystick::DriveTankWithJoystick() {
+CloseClaw::CloseClaw() {
 	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(Robot::chassis.get());
-	Requires(&TestBotChassis);
+	// eg. Requires(Robot::chassis.get());'
+	Requires(&TestBotClaw);
 }
 
 // Called just before this Command runs the first time
-void DriveTankWithJoystick::Initialize() {
+void CloseClaw::Initialize() {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void DriveTankWithJoystick::Execute() {
-	TestBotChassis.DriveStick();
+void CloseClaw::Execute() {
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DriveTankWithJoystick::IsFinished() {
+bool CloseClaw::IsFinished() {
 	return false;
 }
 
 // Called once after isFinished returns true
-void DriveTankWithJoystick::End() {
+void CloseClaw::End() {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void DriveTankWithJoystick::Interrupted() {
+void CloseClaw::Interrupted() {
 
 }

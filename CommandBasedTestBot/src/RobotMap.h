@@ -8,6 +8,7 @@
 #pragma once
 #include "Subsystems/Chassis.h"
 #include "Subsystems/Winch.h"
+#include "Subsystems/Claw.h"
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -26,5 +27,8 @@
 // constexpr int kRangeFinderPort = 1;
 // constexpr int kRangeFinderModule = 1;
 
+constexpr double kEncoder = 22.38535;
+
 static Chassis TestBotChassis;
 static Winch TestBotWinch;
+static Claw TestBotClaw;

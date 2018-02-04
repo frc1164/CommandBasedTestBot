@@ -2,13 +2,23 @@
 #include "../RobotMap.h"
 #include "../Commands/DriveTankWithJoystick.h"
 
-Chassis::Chassis() : Subsystem("ExampleSubsystem") {
+#include <SmartDashboard/SmartDashboard.h>
+#include <Encoder.h>
 
-	Stick = new Joystick(0);
-	Left1 = new Victor(2);
-	Left2 = new Victor(3);
-	Right1 = new Victor(1);
-	Right2 = new Victor(4);
+
+Chassis::Chassis() : frc::Subsystem("ExampleSubsystem") {
+
+	Stick = new frc::Joystick(0);
+	Left1 = new frc::Victor(2);
+	Left2 = new frc::Victor(3);
+	Right1 = new frc::Victor(1);
+	Right2 = new frc::Victor(4);
+
+	LeftEncoder = new frc::Encoder(0,1, true, frc::Encoder::EncodingType::k2X);
+	RightEncoder = new frc::Encoder(2,3, false, frc::Encoder::EncodingType::k2X);
+
+	LeftEncoder->Reset();
+	RightEncoder->Reset();
 
 	Left1->SetInverted(true);
 	Left2->SetInverted(true);
@@ -44,4 +54,31 @@ void Chassis::DriveStick(){
 		Right1->Set(0.0);
 		Right2->Set(0.0);
 	}
+}
+
+void Chassis::Brake(){
+	Right1->Set(0);
+	Right2->Set(0);
+	Left1->Set(0);
+	Left2->Set(0);
+}
+
+double Chassis::DriveForward(double TargetDistance, double speed){
+
+	double EncoderAvg = (LeftEncoder->GetDistance() + RightEncoder->GetDistance()) / 2.0;
+	double inches = EncoderAvg/kEncoder;
+
+	frc::SmartDashboard::PutNumber("Inches", inches);
+
+	Right1->Set(speed);
+	Right2->Set(speed);
+	Left1->Set(speed);
+	Left2->Set(speed);
+
+	return inches;
+}
+
+void Chassis::ResetEncoders(){
+	LeftEncoder->Reset();
+	RightEncoder->Reset();
 }

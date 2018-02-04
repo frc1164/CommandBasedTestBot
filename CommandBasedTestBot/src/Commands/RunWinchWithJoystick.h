@@ -1,9 +1,9 @@
 #ifndef RunWinchWithJoystick_H
 #define RunWinchWithJoystick_H
 
-#include "Commands/Command.h"
+#include <Commands/Command.h>
 
-class RunWinchWithJoystick : public Command {
+class RunWinchWithJoystick : public frc::Command {
 public:
 	RunWinchWithJoystick();
 	void Initialize();
